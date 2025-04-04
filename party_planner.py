@@ -24,7 +24,7 @@ def display_party_items(items):
     """
     print("Party Items:")
     for index, item in enumerate(items):
-        print(f"{index}: {item}")
+        print(f"<p>{index}: {item}</p>")
 
 
 def select_party_items(items):
@@ -32,7 +32,7 @@ def select_party_items(items):
     Allow the user to select one or more items by their indices.
     """
     if sys.argv[1:]:
-        selected_indices = sys.argv[1]
+        selected_indices = ''.join(sys.argv[1:])
     else:
         selected_indices = input("Enter the indices of the items you want to select (comma-separated): ")
     if not selected_indices:
@@ -90,14 +90,14 @@ def render_output(selected_items, base_party_code, base_party_expression, messag
             <title>Party Planner</title>
         </head>
         <body>
-            <h1>Your Selected Party Items:</h1>
+            <h2>Your Selected Party Items:</h2>
             <ul>
                 {''.join(f'<li>{item}</li>' for item in selected_items)}
             </ul>
-            <h2>{base_party_expression}</h2>
-            <h2>{adjusted_party_code}</h2>
-            <h2>Final Party Code: {base_party_code}</h2>
-            <p>{message}</p>
+            <h3>{base_party_expression}</h3>
+            <h3>{adjusted_party_code}</h3>
+            <h3>Final Party Code: {base_party_code}</h3>
+            <h1>{message}</h1>
         </body>
     </html>
     """
