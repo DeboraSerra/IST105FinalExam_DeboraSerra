@@ -38,6 +38,12 @@
   <body>
     <form action="process.php" method="post">
       <h1>Select the items for your party:</h1>
+      <?php
+        $host = gethostname();
+        $host = gethostbyname($host);
+        
+        echo "<p style='text-align: center; margin: 32px 0;'>HOST IP: $host</p>";
+      ?>
       <div>
         <label for="cake">
           <input type="checkbox" name="cake" id="cake" value="0" />
